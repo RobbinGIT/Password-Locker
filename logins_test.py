@@ -69,6 +69,28 @@ class TestLogins(unittest.TestCase):
         self.new_myaccount.delete_account()
         self.assertEqual(len(Logins.logins_list),1)
         
+    # sixth test
+    def test_check_account_exist(self):
+        '''
+        this method tests the existance of an account
+        '''
+        self.new_myaccount.save_myaccount()
+        another_account = Logins("Facebook", "Robbin", "HakunaPassword")
+        another_account.save_myaccount()
+        
+        account_exist = Logins.account_exist("Facebook")
+        
+        self.assertTrue(account_exist)
+        
+       #  seventh test
+    def test_display_all_accounts(self):
+        '''
+        returns a list of all the accounts saved
+        '''   
+        
+        self.assertEqual(Logins.display_account(), Logins.logins_list) 
+        
+        
 if __name__ == '__main__':
     unittest.main()  
     
