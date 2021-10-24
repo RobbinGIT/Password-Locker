@@ -2,7 +2,7 @@ class Logins:
     '''
     class to generate new logins
     '''
-    
+    logins_list = []
     
     def __init__(self,myaccount_name, user_name, password):
         '''
