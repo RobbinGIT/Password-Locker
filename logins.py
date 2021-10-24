@@ -47,5 +47,10 @@ class Logins:
             
         return False
                 
-        
+    @classmethod
+    def display_account(cls):
+        '''
+        this will give us all the accounts present
+        '''  
+        return cls.logins_list  
     
