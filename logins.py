@@ -18,16 +18,7 @@ class Logins:
         '''
         Logins.logins_list.append(self)
        #to find account it must first exist  
-    @classmethod
-    def account_exist(cls, account_name):
-        '''
-        this will check if an account exists in the list
-        '''
-        for account in cls.logins_list:
-            if account.account_name == account_name:
-                return True
-            
-        return False
+  
     
     @classmethod
     def findby_account_name(cls, myaccount_name):
@@ -44,5 +35,17 @@ class Logins:
         method to remove account
         '''
         Logins.logins_list.remove(self)
+        
+    @classmethod
+    def account_exist(cls, myaccount_name):
+        '''
+        this will check if an account exists in the list
+        '''
+        for account in cls.logins_list:
+            if account.myaccount_name == myaccount_name:
+                return True
+            
+        return False
+                
         
     
