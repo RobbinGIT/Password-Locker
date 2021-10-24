@@ -36,7 +36,14 @@ class TestLogins(unittest.TestCase):
         self.assertEqual(len(Logins.logins_list),1)
     
     # Third test
-    
+    def test_save_multiple_accounts(self):
+        '''
+        testing to see if we can save many login credetials to the login list
+        '''
+        self.new_logins.save_details()
+        test_logins = Logins("Facebook", "Robbin", "HakunaPassword")
+        test_logins.save_details()
+        self.assertEqual(len(Logins.logins_list),2)
 
         
 if __name__ == '__main__':
