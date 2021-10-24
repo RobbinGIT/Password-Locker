@@ -57,6 +57,18 @@ class TestLogins(unittest.TestCase):
         the_login = Logins.findby_account_name("Facebook")
         self.assertEqual(the_login.user_name, test_myaccount.user_name)
         
+    # fifth test
+    def test_delete_account(self):
+        '''
+        this method tests to see if we can remove account from the account list
+        '''
+        self.new_myaccount.save_myaccount()
+        test_myaccount = Logins("Facebook", "Robbin", "HakunaPassword")
+        test_myaccount.save_myaccount()
+        
+        self.new_myaccount.delete_account()
+        self.assertEqual(len(Logins.logins_list),1)
+        
 if __name__ == '__main__':
     unittest.main()  
     
