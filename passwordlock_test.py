@@ -25,9 +25,9 @@ class TestClass(unittest.TestCase):
             test if new user has been saved to the new user_list
         """
         self.new_user.save_user()  # add user to list
-        self.assertEqual(len(User.user_list), 1)  # check length of list
+        self.assertEqual(len(User.user_list), 1)  # checking the length of list
         
-    # test 3 - if object actually exists
+    # test 3 - this is to test if the object is in existance
     def test_user_exits(self):
         """ method to check if user exists in the users list"""
         self.new_user.save_user()
