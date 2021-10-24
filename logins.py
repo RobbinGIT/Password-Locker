@@ -12,12 +12,32 @@ class Logins:
         self.user_name = user_name
         self.password = password
         
-    def save_account(self):
+    def save_myaccount(self):
         '''
         this method will append ne myaccount to the list
         '''
         Logins.logins_list.append(self)
-        
+       #to find account it must first exist  
+    @classmethod
+    def account_exist(cls, account_name):
+        '''
+        this will check if an account exists in the list
+        '''
+        for account in cls.logins_list:
+            if account.account_name == account_name:
+                return True
+            
+        return False
+    
+    @classmethod
+    def findby_account_name(cls, myaccount_name):
+        '''
+        search account by name of the account
+        '''
+        for account in cls.logins_list:
+            if account.myaccount_name == myaccount_name:
+                return account
+            
         
     
         
