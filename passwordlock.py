@@ -22,10 +22,20 @@ class User:
     
     def user_exist(cls, username, password):
         '''
-        this methods will check if user actually exiss from the list
+        this method will check if user actually exist from the list
         '''
         for user in cls.user_list:
             if user.username == username and user.password == password:
                 return True # this returns a boolean value as the argument
             
         return False
+    
+    @classmethod
+    
+    def finduserbyname(cls,username,password):
+        '''
+        this method is to help to find a user by their names
+        '''
+        for user in cls.user_list:
+            if user.username == username and user.password == password:
+                return user
