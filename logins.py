@@ -39,6 +39,10 @@ class Logins:
                 return account
             
         
-    
+    def delete_account(self):
+        '''
+        method to remove account
+        '''
+        Logins.logins_list.remove(self)
         
     
