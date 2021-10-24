@@ -47,11 +47,36 @@ def create_account(myaccount_name, user_name, password):
     '''
     new_account = Logins(myaccount_name, user_name,password)
     
-def save_account(credential):
+def save_account(logins):
     '''
     save new account
     '''
-    Logins.save_account()
-    
+    logins.save_account()
 
+
+def find_account(myaccount_name):
+    '''
+    this method will find account by name and will return that account
+    '''
+    return Logins.findby_account_name(myaccount_name)
+
+def check_existing_account(myaccount_name):
+    '''
+    this function check if account exixt withi account name and will return a boolean value
+    '''
+    return Logins.account_exist(myaccount_name)
+
+def delete_account(logins):
+    '''
+    removes an account
+    '''
+    logins.delete_account()
     
+def display_account():
+    '''
+    returns all the saved accounts
+    '''
+    return Logins.display_account()
+    
+    
+# main functions
