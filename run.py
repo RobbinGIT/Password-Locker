@@ -105,3 +105,38 @@ def main():
     save_user(create_user(user_name, password))
     print('\n')
     refresh()
+    
+    print('\n')
+    print(f"Hi {user_name}, You have succefully created your account.")
+    print('\n')
+    
+    print("Login")
+    print('\n')
+    
+    print("Enter username") 
+    user_name = input()
+    print(f"Enter password")
+    password = input()
+    print('\n')
+    
+    if check_existing_user(user_name, password):
+        fetch_user = find_user(user_name,password)
+        
+        while True:
+           print('\n')
+           print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
+           print('\n')
+           
+           user_reply = input().lower()
+           
+           if user_reply == 'na':
+               print("New user Account")
+               print("*"*10)
+               
+               print("Account Name")
+               myaccount_name =  input()
+               
+               print("Username")
+               user_name = input()
+    
+    
