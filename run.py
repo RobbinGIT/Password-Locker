@@ -156,10 +156,10 @@ def main():
                         print("password")
                         password = input()
                         
-                    # creating and saving the new login details
-                save_account(create_account(myaccount_name,user_name,password))
+                 # creating and saving the new login details
+                save_account(create_account( myaccount_name, user_name, password))
                 print('\n')
-                print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
+                print(f"New account: {myaccount_name}  with user name : {user_name} created :{password}")
                 print('\n')    
                 
             elif user_reply == 'sa':
@@ -212,10 +212,7 @@ def main():
         refresh()
         print("Account does not exist. enter valid account")
         print('\n')
-            
-        main()
-    print('\n')
-                        
+                     
             
 if __name__ == '__main__':
     main()
