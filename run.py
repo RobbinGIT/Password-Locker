@@ -124,10 +124,10 @@ def main():
         
         while True:
             print('\n')
-            print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
+            print("Please choose, na - to create new account, sa - to show/display account,y-generate password fa- to find an account, da- to delete an account, ex -exit")
             print('\n')
             
-            user_reply = input().lower()
+            user_reply = input().lower().strip()
             
             if user_reply == 'na':
                print("New user Account")
@@ -139,26 +139,27 @@ def main():
                print("Username")
                user_name = input()
                
-               generate = response_none("Click y for automatic password (y/n)")
-               if generate == "y":
-                   value = 16
-                   upper = string.ascii_uppercase
-                   lower = string.ascii_lowercase
-                   num = string.digits
-                   all = upper + lower + num
-                   temp = random.sample(all,value)
-                   password = "".join(temp)
-                   
-               else:
-                   
-                   print("password")
-                   password = input()
-                   
+               while True:
+                generate = response_none("would you like automatically generated passwaord? (y/n):")
+                if generate == "y":
+                    value = 16
+                    upper = string.ascii_uppercase
+                    lower = string.ascii_lowercase
+                    num = string.digits
+                    all = upper + lower + num
+                    temp = random.sample(all,value)
+                    password = "".join(temp)
+                    
+                else:
+                    
+                    print("password")
+                    password = input()
+                    
                 # creating and saving the new login details
-               save_account(create_account(myaccount_name,user_name,password))
-               print('\n')
-               print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
-               print('\n') 
+                save_account(create_account(myaccount_name,user_name,password))
+                print('\n')
+                print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
+                print('\n') 
             
             elif user_reply == 'sa':
                 if display_account():
