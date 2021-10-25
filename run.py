@@ -48,11 +48,11 @@ def create_account(myaccount_name, user_name, password):
     new_account = Logins(myaccount_name, user_name,password)
     return new_account
     
-def save_account(logins):
+def save_myaccount(logins):
     '''
     save new account
     '''
-    logins.save_account()
+    logins.save_myaccount()
 
 
 def find_account(myaccount_name):
@@ -143,7 +143,7 @@ def main():
                 
                 generate = response_none("would you like automatically generated passwaord? (y/n):")
                 if generate == "y":
-                        value = 16
+                        value = 8
                         upper = string.ascii_uppercase
                         lower = string.ascii_lowercase
                         num = string.digits
@@ -152,28 +152,28 @@ def main():
                         password = "".join(temp)
                         
                 else:
-                        
-                        print("password")
-                        password = input()
+                      
+                    print("password")
+                    password = input()
                         
                  # creating and saving the new login details
-                save_account(create_account( myaccount_name, user_name, password))
+                save_myaccount(create_account( myaccount_name, user_name, password))
                 print('\n')
                 print(f"New account: {myaccount_name}  with user name : {user_name} created :{password}")
                 print('\n')    
                 
             elif user_reply == 'sa':
                 if display_account():
-                    print("This is a list of all accounts")
-                    print('\n') 
+                   print("This is a list of all accounts")
+                   print('\n') 
                         
-                    for logins in display_account():
-                            print(f"{logins.myaccount_name} | {logins.user_name} | {logins.password}")
+                   for logins in display_account():
+                       print(f"{logins.myaccount_name} | {logins.user_name} | {logins.password}")
                             
                 else:
                     print('\n')
                     print("There are no account saved")
-                    print('\n')
+                print('\n')
                         
             elif user_reply == 'fa':
                 print("enter the account you want to find")
@@ -188,7 +188,7 @@ def main():
                     print(f"username  {check_account.user_name}")
                 else:
                     print("Oops,account does not exist")
-                    print('\n')
+                print('\n')
                     
             elif user_reply == 'da':
                 print("which account would you like to delete?")
