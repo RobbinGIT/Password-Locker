@@ -133,7 +133,7 @@ def main():
            
             if user_reply == 'na':
                 print("New user Account")
-                print("-"*10)
+                print("*"*30)
                 
                 print("Account Name")
                 myaccount_name =  input()
@@ -155,8 +155,7 @@ def main():
                       
                     print("password")
                     password = input()
-                        
-                 # creating and saving the new login details
+        # to create and also save new user account     
                 save_myaccount(create_account( myaccount_name, user_name, password))
                 print('\n')
                 print(f"New account: {myaccount_name}  with user name : {user_name} created :{password}")
