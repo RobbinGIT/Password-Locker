@@ -80,3 +80,28 @@ def display_account():
     
     
 # main functions
+
+
+
+def response_none(Question):
+    '''
+    Here the user will respond to whethere to generate password
+    '''
+    response = None
+    while response not in ("Yes", "No"):
+        response = input(Question).lower()
+    return response
+
+def main():
+    print (f"hello welcome to PasswordLock")
+    print('\n')
+    print("Create your Account")
+    print('\n')
+    
+    print("Enter username") 
+    user_name = input()
+    print(f"Enter password")
+    password = input()
+    save_user(create_user(user_name, password))
+    print('\n')
+    refresh()
