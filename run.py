@@ -46,6 +46,7 @@ def create_account(myaccount_name, user_name, password):
     create new account
     '''
     new_account = Logins(myaccount_name, user_name,password)
+    return new_account
     
 def save_account(logins):
     '''
