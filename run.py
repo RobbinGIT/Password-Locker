@@ -138,5 +138,13 @@ def main():
                
                print("Username")
                user_name = input()
-    
-    
+               
+               generate = response_none("Click y for automatic password (y/n)")
+               if generate == "y":
+                   value = 16
+                   upper = string.ascii_uppercase
+                   lower = string.ascii_lowercase
+                   num = string.digits
+                   all = upper + lower + num
+                   temp = random.sample(all,value)
+                   password = "".join(temp)
