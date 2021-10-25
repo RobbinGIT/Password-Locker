@@ -84,13 +84,13 @@ def display_account():
 
 
 
-def response_none(Question):
+def response_none(question):
     '''
-    Here the user will respond to whethere to generate password
+    Here the user will respond to if to generate password
     '''
     response = None
-    while response not in ("Yes", "No"):
-        response = input(Question).lower()
+    while response not in ('y', 'n'):
+        response = input(question).lower()
     return response
 
 def main():
@@ -99,9 +99,9 @@ def main():
     print("Create your Account")
     print('\n')
     
-    print("Enter username") 
+    print("Enter new username") 
     user_name = input()
-    print(f"Enter password")
+    print(f"Enter new password")
     password = input()
     save_user(create_user(user_name, password))
     print('\n')
@@ -124,71 +124,72 @@ def main():
         fetch_user = find_user(user_name,password)
         
         while True:
+      
             print('\n')
-            print("Please choose, na - to create new account, sa - to show/display account,y-generate password fa- to find an account, da- to delete an account, ex -exit")
+            print("Please choose using the following short codes: na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
             print('\n')
             
-            user_reply = input().lower().strip()
-            
+            user_reply = input().lower()   
+           
             if user_reply == 'na':
-               print("New user Account")
-               print("*"*10)
-               
-               print("Account Name")
-               myaccount_name =  input()
-               
-               print("Username")
-               user_name = input()
-               
-               while True:
+                print("New user Account")
+                print("-"*10)
+                
+                print("Account Name")
+                myaccount_name =  input()
+                
+                print("Username")
+                user_name = input()
+                
                 generate = response_none("would you like automatically generated passwaord? (y/n):")
                 if generate == "y":
-                    value = 16
-                    upper = string.ascii_uppercase
-                    lower = string.ascii_lowercase
-                    num = string.digits
-                    all = upper + lower + num
-                    temp = random.sample(all,value)
-                    password = "".join(temp)
-                    
+                        value = 16
+                        upper = string.ascii_uppercase
+                        lower = string.ascii_lowercase
+                        num = string.digits
+                        all = upper + lower + num
+                        temp = random.sample(all,value)
+                        password = "".join(temp)
+                        
                 else:
-                    
-                    print("password")
-                    password = input()
-                    
-                # creating and saving the new login details
+                        
+                        print("password")
+                        password = input()
+                        
+                    # creating and saving the new login details
                 save_account(create_account(myaccount_name,user_name,password))
                 print('\n')
                 print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
-                print('\n') 
-            
+                print('\n')    
+                
             elif user_reply == 'sa':
                 if display_account():
                     print("This is a list of all accounts")
                     print('\n') 
-                    
-                    for logins in display_account():
-                        print(f"{logins.myaccount_name} | {logins.user_name} | {logins.password}")
                         
+                    for logins in display_account():
+                            print(f"{logins.myaccount_name} | {logins.user_name} | {logins.password}")
+                            
                 else:
                     print('\n')
                     print("There are no account saved")
                     print('\n')
-                    
+                        
             elif user_reply == 'fa':
                 print("enter the account you want to find")
-                
+                    
                 search_account = input()
                 if check_existing_account(search_account):
                     check_account = find_account(search_account)
                     print(f"{check_account.myaccount_name}")
                     print('-'*20)
-                    
+                        
                     print(f"account name  {check_account.myaccount_name}")
                     print(f"username  {check_account.user_name}")
                 else:
                     print("Oops,account does not exist")
-                print('\n')
+                    print('\n')
+                    
             elif user_reply == 'da':
                 print("which account would you like to delete?")
                 search_account = input()
@@ -200,26 +201,25 @@ def main():
                 else:
                     print('\n')
                     print("sorry no account matching the username")
-            
+                
             elif user_reply == 'ex':
                 print("bye, thanks for visiting")
                 break
-            
+                
             else:
                 print("sorry we did not get that")
     else:
         refresh()
         print("Account does not exist. enter valid account")
         print('\n')
-        
+            
         main()
     print('\n')
-                    
+                        
             
 if __name__ == '__main__':
-
     main()
-
+           
                
    
                   
