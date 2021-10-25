@@ -188,31 +188,31 @@ def main():
                     print("Oops,account does not exist")
                 print('\n')
             elif user_reply == 'da':
-                print()
-                
+                print("which account would you like to delete?")
+                search_account = input()
+                if check_existing_account(search_account):
+                    print("Loading ....")
+                    check_account = find_account(search_account)
+                    delete_account(check_account)
+                    print(f"account {check_account.myaccount_name} account removed successfully")
+                else:
+                    print('\n')
+                    print("sorry no account matching the username")
             
+            elif user_reply == 'ex':
+                print("bye, thanks for visiting")
+                break
             
             else:
                 print("sorry we did not get that")
-            
-if __name__ == '__main__':
-    main()
+    else:
+        refresh()
+        print("Account does not exist. enter valid account")
+        print('\n')
         
-        
-        
-        
-        
-        # while True:
-        #    print('\n')
-        #    print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
-        #    print('\n')
-           
-        #    user_reply = input().lower()
-           
-      
-                   
-                
-               
+        main()
+    print('\n')
+                    
             
 if __name__ == '__main__':
 
