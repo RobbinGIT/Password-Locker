@@ -148,6 +148,18 @@ def main():
                    all = upper + lower + num
                    temp = random.sample(all,value)
                    password = "".join(temp)
+                   
                else:
+                   
                    print("password")
                    password = input()
+                   
+                 # creating and saving the new login details
+               save_account(create_account(myaccount_name,user_name,password))
+               print('\n')
+               print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
+               print('\n')
+               
+   
+                  
+            
