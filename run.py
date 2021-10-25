@@ -148,3 +148,6 @@ def main():
                    all = upper + lower + num
                    temp = random.sample(all,value)
                    password = "".join(temp)
+               else:
+                   print("password")
+                   password = input()
