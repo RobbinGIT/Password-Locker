@@ -123,13 +123,13 @@ def main():
         fetch_user = find_user(user_name,password)
         
         while True:
-           print('\n')
-           print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
-           print('\n')
-           
-           user_reply = input().lower()
-           
-           if user_reply == 'na':
+            print('\n')
+            print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
+            print('\n')
+            
+            user_reply = input().lower()
+            
+            if user_reply == 'na':
                print("New user Account")
                print("*"*10)
                
@@ -154,11 +154,70 @@ def main():
                    print("password")
                    password = input()
                    
-                 # creating and saving the new login details
+                # creating and saving the new login details
                save_account(create_account(myaccount_name,user_name,password))
                print('\n')
                print(f"New account: {myaccount_name} and username: {user_name} and: {password}")
-               print('\n')
+               print('\n') 
+            
+            elif user_reply == 'sa':
+                if display_account():
+                    print("This is a list of all accounts")
+                    print('\n') 
+                    
+                    for logins in display_account():
+                        print(f"{logins.myaccount_name} | {logins.user_name} | {logins.password}")
+                        
+                else:
+                    print('\n')
+                    print("There are no account saved")
+                    print('\n')
+                    
+            elif user_reply == 'fa':
+                print("enter the account you want to find")
+                
+                search_account = input()
+                if check_existing_account(search_account):
+                    check_account = find_account(search_account)
+                    print(f"{check_account.myaccount_name}")
+                    print('-'*20)
+                    
+                    print(f"account name  {check_account.myaccount_name}")
+                    print(f"username  {check_account.user_name}")
+                else:
+                    print("Oops,account does not exist")
+                print('\n')
+            elif user_reply == 'da':
+                print()
+                
+            
+            
+            else:
+                print("sorry we did not get that")
+            
+if __name__ == '__main__':
+    main()
+        
+        
+        
+        
+        
+        # while True:
+        #    print('\n')
+        #    print("Please choose, na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
+        #    print('\n')
+           
+        #    user_reply = input().lower()
+           
+      
+                   
+                
+               
+            
+if __name__ == '__main__':
+
+    main()
+
                
    
                   
