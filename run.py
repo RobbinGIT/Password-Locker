@@ -84,13 +84,13 @@ def display_account():
 
 
 
-def response_none(question):
+def response_none(Question):
     '''
     Here the user will respond to if to generate password
     '''
     response = None
     while response not in ('y', 'n'):
-        response = input(question).lower()
+        response = input(Question).lower()
     return response
 
 def main():
@@ -126,7 +126,7 @@ def main():
         while True:
       
             print('\n')
-            print("Please choose using the following short codes: na - to create new account, sa - to show/display account, fa- to find an account, da- to delete an account, ex -exit")
+            print("Please choose using the following: na - to create new account, sa - to show/display account, \n fa- to find an account, da- to delete an account, ex -exit")
             print('\n')
             
             user_reply = input().lower()   
