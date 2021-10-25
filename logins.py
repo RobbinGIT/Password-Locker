@@ -1,3 +1,7 @@
+import random
+import string
+
+
 class Logins:
     '''
     class to generate new logins
@@ -52,5 +56,7 @@ class Logins:
         '''
         this will give us all the accounts present
         '''  
-        return cls.logins_list  
+        return cls.logins_list
+    
+    
     
