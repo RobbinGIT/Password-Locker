@@ -77,6 +77,13 @@ def display_account():
     returns all the saved accounts
     '''
     return Logins.display_account()
+
+def generate_password():
+    '''
+    this method generate a random password
+    '''
+    auto_password = Logins.generatePassword()
+    return auto_password
     
     
 # main functions
@@ -124,7 +131,7 @@ def main():
         
         while True:
             print('\n')
-            print("Please choose, na - to create new account, sa - to show/display account,y-generate password fa- to find an account, da- to delete an account, ex -exit")
+            print("Please choose, na - to create new account, sa - to show/display account,Tp- type own password, Gp-generate password fa- to find an account, da- to delete an account, ex -exit")
             print('\n')
             
             user_reply = input().lower().strip()
@@ -140,20 +147,20 @@ def main():
                user_name = input()
                
                while True:
-                generate = response_none("would you like automatically generated passwaord? (y/n):")
-                if generate == "y":
-                    value = 16
-                    upper = string.ascii_uppercase
-                    lower = string.ascii_lowercase
-                    num = string.digits
-                    all = upper + lower + num
-                    temp = random.sample(all,value)
-                    password = "".join(temp)
-                    
+                   
+                print("Tp- to type own pass word:\n Gp -to generate random password")
+                password_Choosen = input().lower().strip()
+                # generate = response_none("would you like automatically generated passwaord? (y/n):")
+                if password_Choosen == "tp":
+                    password = input("Type password")
+                    break
+                elif password_Choosen == 'gp':
+                    password = generate_password()
+                    break
                 else:
+                    print("Please input a valid password")
                     
-                    print("password")
-                    password = input()
+    
                     
                 # creating and saving the new login details
                 save_account(create_account(myaccount_name,user_name,password))
